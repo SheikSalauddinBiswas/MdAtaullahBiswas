@@ -30,7 +30,7 @@ nav a.l:hover{color:var(--ink)}
 .tg{border:1px solid var(--line);background:var(--surf);color:var(--ink);height:36px;min-width:36px;padding:0 12px;border-radius:99px;font:600 13px 'Manrope','Hind Siliguri',sans-serif;cursor:pointer;transition:transform .2s,border-color .2s}
 .tg:hover{border-color:var(--acc);transform:translateY(-1px)}
 @media(max-width:720px){nav a.l{display:none}}
-.hero{padding:clamp(56px,11vw,120px) 0 72px;background:radial-gradient(900px 400px at 85% -10%,var(--glow),transparent 70%)}
+.hero{padding:clamp(56px,11vw,120px) 0 72px;background:radial-gradient(520px circle at var(--mx,85%) var(--my,0%),var(--glow),transparent 70%)}
 .hero h1{font-size:clamp(40px,8vw,84px);line-height:1.05;letter-spacing:-.035em;font-weight:800;margin:0 0 18px;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
 .role{font-size:clamp(18px,2.6vw,24px);color:var(--mute);margin:0;animation:rise .9s .12s cubic-bezier(.2,.7,.2,1) both}
 .role b{color:var(--acc);font-weight:700}
@@ -43,6 +43,26 @@ nav a.l:hover{color:var(--ink)}
 .stats{display:flex;gap:clamp(24px,6vw,64px);flex-wrap:wrap;margin-top:56px;padding-top:28px;border-top:1px solid var(--line)}
 .stats b{display:block;font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.03em;font-weight:800}
 .stats span{font-size:14px;color:var(--mute)}
+.hg{display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:center}
+.photo{order:2;position:relative;width:min(280px,64vw);aspect-ratio:1;border-radius:50%;margin:0 auto;display:grid;place-items:center;background:var(--surf);border:1px solid var(--line);font-size:64px;font-weight:800;color:var(--acc);animation:rise .9s .2s cubic-bezier(.2,.7,.2,1) both}
+.photo::before{content:"";position:absolute;inset:-14px;border-radius:50%;border:3px dashed var(--st);animation:spin 40s linear infinite;transition:border-color .3s}
+.photo:hover::before{border-color:var(--acc)}
+.photo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+@media(max-width:820px){.hg{grid-template-columns:1fr;gap:36px}.photo{order:0;width:min(200px,56vw);margin:14px 0 0 14px}}
+.bar{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--st);transform:scaleX(0);transform-origin:left}
+h2::after{content:"";display:block;height:3px;width:0;margin-top:14px;background:repeating-linear-gradient(90deg,var(--st) 0 8px,transparent 8px 14px);transition:width 1s .3s}
+h2.on::after{width:64px}
+.job h3{transition:color .25s}.job:hover h3{color:var(--acc)}
+.mb{display:none;align-items:center;justify-content:center;padding:0}
+.ov{position:fixed;inset:0;background:rgba(5,10,20,.55);opacity:0;pointer-events:none;transition:opacity .3s;z-index:19}
+.ov.open{opacity:1;pointer-events:auto}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(78vw,320px);background:var(--surf);border-left:1px solid var(--line);z-index:20;transform:translateX(100%);visibility:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s .35s;padding:calc(20px + env(safe-area-inset-top,0px)) 28px 28px;display:none;flex-direction:column}
+.dr.open{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.dr a{font-size:22px;font-weight:700;padding:16px 0;border-bottom:1px dashed var(--line);transition:color .2s,padding .25s}
+.dr a:hover{color:var(--acc);padding-left:8px}
+.dr .x{align-self:flex-end;margin-bottom:12px}
+@media(max-width:720px){.mb{display:inline-flex}.dr{display:flex}}
+@keyframes spin{to{transform:rotate(360deg)}}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}}
 @keyframes sew{to{width:100%}}
 section{padding:72px 0;border-top:1px solid var(--line)}
@@ -79,7 +99,7 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 </style>
 </head>
 <body>
-<header><div class="wrap"><nav>
+<header><i class="bar" id="bar"></i><div class="wrap"><nav>
 <a class="logo" href="#top">AB<i>.</i></a>
 <a class="l" href="#about"><x-e>About</x-e><x-b>পরিচিতি</x-b></a>
 <a class="l" href="#skills"><x-e>Expertise</x-e><x-b>দক্ষতা</x-b></a>
@@ -87,10 +107,20 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <a class="l" href="#contact"><x-e>Contact</x-e><x-b>যোগাযোগ</x-b></a>
 <button class="tg" id="lg" aria-label="Switch language"><x-e>বাংলা</x-e><x-b>English</x-b></button>
 <button class="tg" id="th" aria-label="Toggle theme">◐</button>
+<button class="tg mb" id="mb" aria-label="Menu" aria-expanded="false">☰</button>
 </nav></div></header>
+<div class="ov" id="ov"></div>
+<aside class="dr" id="dr" aria-label="Menu">
+<button class="tg x" id="cx" aria-label="Close menu">✕</button>
+<a href="#about"><x-e>About</x-e><x-b>পরিচিতি</x-b></a>
+<a href="#skills"><x-e>Expertise</x-e><x-b>দক্ষতা</x-b></a>
+<a href="#career"><x-e>Career</x-e><x-b>ক্যারিয়ার</x-b></a>
+<a href="#edu"><x-e>Education</x-e><x-b>শিক্ষা</x-b></a>
+<a href="#contact"><x-e>Contact</x-e><x-b>যোগাযোগ</x-b></a>
+</aside>
 
 <main id="top">
-<div class="hero"><div class="wrap">
+<div class="hero"><div class="wrap"><div class="hg"><div class="photo" id="ph"><span>AB</span></div><div>
 <h1><x-e>Md. Ataullah Biswas</x-e><x-b>মো. আতাউল্লাহ বিশ্বাস</x-b></h1>
 <p class="role"><b><x-e>Deputy General Manager, Production</x-e><x-b>ডেপুটি জেনারেল ম্যানেজার, প্রোডাকশন</x-b></b> · Pacific Jeans Group</p>
 <div class="stitch"></div>
@@ -98,7 +128,7 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <div class="btns">
 <a class="btn p" href="mailto:ataullah.biswas1@gmail.com"><x-e>Email me</x-e><x-b>ইমেইল করুন</x-b></a>
 <a class="btn" href="tel:+8801716404998"><x-e>Call</x-e><x-b>কল করুন</x-b></a>
-</div>
+</div></div></div>
 <div class="stats">
 <div><b id="yrs" data-n="25">25</b><span><x-e>years in garments</x-e><x-b>বছর গার্মেন্টসে</x-b></span></div>
 <div><b id="cos" data-n="5">5</b><span><x-e>companies</x-e><x-b>প্রতিষ্ঠান</x-b></span></div>
@@ -171,8 +201,15 @@ document.getElementById('y').textContent=new Date().getFullYear();
 var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 if('IntersectionObserver' in window&&!rm){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.rv').forEach(function(e){io.observe(e)})}else{document.querySelectorAll('.rv').forEach(function(e){e.classList.add('on')})}
 if(!rm){document.querySelectorAll('[data-n]').forEach(function(e){var n=+e.dataset.n,s=null;function f(ts){s=s||ts;var p=Math.min((ts-s)/1400,1);e.textContent=nf(Math.round(n*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)}setTimeout(function(){requestAnimationFrame(f)},500)})}
-var tl=document.getElementById('tl');
-function sc(){var r=tl.getBoundingClientRect(),h=innerHeight*.6,p=Math.max(0,Math.min(1,(h-r.top)/r.height));tl.style.setProperty('--p',(p*100)+'%')}
+var tl=document.getElementById('tl'),bar=document.getElementById('bar');
+var dr=document.getElementById('dr'),ov=document.getElementById('ov'),mb=document.getElementById('mb');
+function tgl(o){dr.classList.toggle('open',o);ov.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
+mb.onclick=function(){tgl(true)};document.getElementById('cx').onclick=ov.onclick=function(){tgl(false)};
+dr.querySelectorAll('a').forEach(function(a){a.onclick=function(){tgl(false)}});
+addEventListener('keydown',function(e){if(e.key==='Escape')tgl(false)});
+var hr=document.querySelector('.hero');if(matchMedia('(pointer:fine)').matches&&!rm)hr.addEventListener('pointermove',function(e){var b=hr.getBoundingClientRect();hr.style.setProperty('--mx',(e.clientX-b.left)+'px');hr.style.setProperty('--my',(e.clientY-b.top)+'px')});
+var im=new Image();im.alt='Md. Ataullah Biswas';im.onload=function(){var p=document.getElementById('ph');p.textContent='';p.appendChild(im)};im.src='photo.jpg';
+function sc(){var r=tl.getBoundingClientRect(),h=innerHeight*.6,p=Math.max(0,Math.min(1,(h-r.top)/r.height));tl.style.setProperty('--p',(p*100)+'%');var m=d.scrollHeight-innerHeight;bar.style.transform='scaleX('+(m>0?scrollY/m:0)+')'}
 addEventListener('scroll',sc,{passive:true});sc();
 })();
 </script>
