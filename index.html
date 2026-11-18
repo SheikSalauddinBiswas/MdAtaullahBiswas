@@ -9,10 +9,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Hind+Siliguri:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F7F8FA;--surf:#FFFFFF;--ink:#101828;--mute:#5B6577;--line:#E2E6EE;--acc:#2B4C8C;--st:#D9962B;--glow:rgba(43,76,140,.10);
+:root{--bg:#F7F8FA;--surf:#FFFFFF;--ink:#101828;--mute:#5B6577;--line:#E2E6EE;--acc:#2B4C8C;--st:#D9962B;--glow:rgba(43,76,140,.10);--lf:brightness(0);
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1220;--surf:#121A2B;--ink:#EEF2F9;--mute:#9AA6BC;--line:#223049;--acc:#86A8EE;--st:#E8B04F;--glow:rgba(134,168,238,.12);color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0C1220;--surf:#121A2B;--ink:#EEF2F9;--mute:#9AA6BC;--line:#223049;--acc:#86A8EE;--st:#E8B04F;--glow:rgba(134,168,238,.12);color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1220;--surf:#121A2B;--ink:#EEF2F9;--mute:#9AA6BC;--line:#223049;--acc:#86A8EE;--st:#E8B04F;--glow:rgba(134,168,238,.12);--lf:brightness(0) invert(1);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C1220;--surf:#121A2B;--ink:#EEF2F9;--mute:#9AA6BC;--line:#223049;--acc:#86A8EE;--st:#E8B04F;--glow:rgba(134,168,238,.12);--lf:brightness(0) invert(1);color-scheme:dark}
 html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
 *,*::before,*::after{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.7 'Manrope','Hind Siliguri',system-ui,sans-serif;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
@@ -70,6 +70,22 @@ h2.on::after{width:64px}
 [data-s]::after{content:attr(data-s)}
 @keyframes bob{50%{transform:translateY(-6px)}}
 @keyframes ring{from{opacity:.8;transform:scale(1)}to{opacity:0;transform:scale(1.45)}}
+@media(prefers-reduced-motion:reduce){.mq{overflow-x:auto}}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq{overflow:hidden;border-block:1px solid var(--line);padding:26px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tk{display:flex;align-items:center;width:max-content;list-style:none;margin:0;padding:0;animation:mq 50s linear infinite}
+.mq:hover .tk{animation-play-state:paused}
+.tk li{flex:none;display:grid;place-items:center;height:44px;padding:0 40px;border-right:1px dashed var(--line);color:var(--mute);font-weight:800;font-size:clamp(20px,3vw,26px);letter-spacing:-.02em;white-space:nowrap;transition:color .3s}
+.tk li:hover{color:var(--ink)}
+.tk img{max-height:34px;max-width:132px;width:auto;filter:var(--lf);opacity:.55;transition:opacity .3s}
+.tk li:hover img{opacity:1}
+.ds{margin:8px 0 0;font-size:15px}
+.sub{font-size:13px;font-weight:700;color:var(--st);margin:34px 0 2px}.sub:first-child{margin-top:0}
+.sk.one{grid-template-columns:1fr}
+.fig{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:36px}
+.fig b{display:block;font-size:clamp(28px,4.4vw,42px);letter-spacing:-.03em;line-height:1.1;font-weight:800;color:var(--acc)}
+.fig span{font-size:14px;color:var(--mute);line-height:1.5;display:block;margin-top:6px}
+@media(max-width:620px){.fig{grid-template-columns:1fr;gap:20px}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}}
 @keyframes sew{to{width:100%}}
@@ -151,36 +167,73 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <p><x-e>I know every stage: cutting, sewing, finishing, sampling and quality checking. I am organized, self-motivated and dedicated to seeing each order through on time.</x-e><x-b>কাটিং, সুইং, ফিনিশিং, স্যাম্পলিং ও কোয়ালিটি চেকিং, প্রতিটি ধাপই আমার জানা। আমি গোছানো, আত্মপ্রেরিত এবং প্রতিটি অর্ডার সময়মতো শেষ করতে প্রতিশ্রুতিবদ্ধ।</x-b></p>
 </div></div></section>
 
+<section id="impact"><div class="wrap grid">
+<h2 class="rv"><x-e>Highlights</x-e><x-b>উল্লেখযোগ্য অর্জন</x-b></h2>
+<div class="rv">
+<div class="fig">
+<div><b><x-e>30% → 90%</x-e><x-b>৩০% → ৯০%</x-b></b><span><x-e>PCD hit rate improvement</x-e><x-b>পিসিডি হিট রেটের উন্নতি</x-b></span></div>
+<div><b><x-e>48 lines</x-e><x-b>৪৮টি লাইন</x-b></b><span><x-e>led from cutting to shipment</x-e><x-b>কাটিং থেকে শিপমেন্ট পর্যন্ত নেতৃত্ব</x-b></span></div>
+<div><b><x-e>15 min</x-e><x-b>১৫ মিনিট</x-b></b><span><x-e>line monitoring cycle to lift output</x-e><x-b>আউটপুট বাড়াতে লাইন মনিটরিং চক্র</x-b></span></div>
+</div>
+<ul class="sk one">
+<li><x-e>Monthly factory loading to meet planned standard hours and efficiency</x-e><x-b>পরিকল্পিত স্ট্যান্ডার্ড আওয়ার ও এফিসিয়েন্সি অর্জনে মাসিক ফ্যাক্টরি লোডিং</x-b></li>
+<li><x-e>Daily block-wise production monitoring, down to the needle point when a problem appears</x-e><x-b>ব্লকভিত্তিক দৈনিক প্রোডাকশন মনিটরিং, সমস্যা হলে নিডল পয়েন্ট পর্যন্ত যাচাই</x-b></li>
+<li><x-e>Leading teams through change and innovation toward company goals</x-e><x-b>পরিবর্তন ও উদ্ভাবনের মাধ্যমে কোম্পানির লক্ষ্যে দলকে নেতৃত্ব</x-b></li>
+<li><x-e>Strong technical skill and knowledge of quality standards</x-e><x-b>শক্তিশালী টেকনিক্যাল দক্ষতা ও কোয়ালিটি স্ট্যান্ডার্ডের জ্ঞান</x-b></li>
+</ul></div></div></section>
+
 <section id="skills"><div class="wrap grid">
 <h2 class="rv"><x-e>Expertise</x-e><x-b>দক্ষতা</x-b></h2>
 <ul class="sk rv">
 <li><x-e>Bulk production</x-e><x-b>বাল্ক প্রোডাকশন</x-b></li>
 <li><x-e>Quality control and final inspection</x-e><x-b>কোয়ালিটি কন্ট্রোল ও ফাইনাল ইন্সপেকশন</x-b></li>
-<li><x-e>Thread consumption</x-e><x-b>থ্রেড কনজাম্পশন</x-b></li>
-<li><x-e>Fabric consumption, knit and woven</x-e><x-b>ফেব্রিক কনজাম্পশন (নিট ও উভেন)</x-b></li>
-<li><x-e>Button and lining measurement and counting</x-e><x-b>বোতাম ও লাইনিং মাপ ও গণনা</x-b></li>
-<li><x-e>Poly bag consumption and pricing</x-e><x-b>পলি ব্যাগ কনজাম্পশন ও প্রাইসিং</x-b></li>
-<li><x-e>Carton consumption and pricing</x-e><x-b>কার্টন কনজাম্পশন ও প্রাইসিং</x-b></li>
-<li><x-e>CM (cost of making) calculation</x-e><x-b>সিএম (কস্ট অফ মেকিং) ক্যালকুলেশন</x-b></li>
-<li><x-e>CBM calculation</x-e><x-b>সিবিএম ক্যালকুলেশন</x-b></li>
-<li><x-e>Sampling, cutting, sewing, finishing</x-e><x-b>স্যাম্পলিং, কাটিং, সুইং, ফিনিশিং</x-b></li>
+<li><x-e>Making line plans</x-e><x-b>লাইন প্ল্যান তৈরি</x-b></li>
+<li><x-e>Manpower control</x-e><x-b>ম্যানপাওয়ার নিয়ন্ত্রণ</x-b></li>
+<li><x-e>Cost reduction</x-e><x-b>খরচ কমানো</x-b></li>
+<li><x-e>Reconciliation maintenance</x-e><x-b>রিকনসিলিয়েশন রক্ষণাবেক্ষণ</x-b></li>
+<li><x-e>Audit maintenance</x-e><x-b>অডিট রক্ষণাবেক্ষণ</x-b></li>
+<li><x-e>On-time shipment</x-e><x-b>সময়মতো শিপমেন্ট নিশ্চিত করা</x-b></li>
+<li><x-e>Increasing production and efficiency</x-e><x-b>উৎপাদন ও দক্ষতা বৃদ্ধি</x-b></li>
+</ul></div></section>
+
+<section id="buyers"><div class="wrap"><h2 class="rv"><x-e>Worked with reputed buyers</x-e><x-b>নামকরা বায়ারদের সাথে কাজ</x-b></h2></div>
+<div class="mq"><ul class="tk" id="bl">
+<li data-l="asmark">As Mark</li>
+<li data-l="walmart-japan">Walmart Japan</li>
+<li data-l="hm">H&amp;M</li>
+<li data-l="decathlon">Decathlon</li>
+<li data-l="allora">Allora</li>
+<li data-l="columbia">Columbia</li>
+<li data-l="ifg">IFG</li>
+<li data-l="george">George</li>
+<li data-l="kmart">Kmart</li>
+<li data-l="ina">INA</li>
+<li data-l="fila">Fila</li>
+<li data-l="target-australia">Target Australia</li>
+<li data-l="uniqlo">UNIQLO</li>
+<li data-l="gu">GU</li>
 </ul></div></section>
 
 <section id="career"><div class="wrap grid">
 <h2 class="rv"><x-e>Career</x-e><x-b>ক্যারিয়ার</x-b></h2>
 <div class="tl rv" id="tl">
-<div class="job"><div class="when"><x-e>Feb 2019 – Present</x-e><x-b>ফেব্রুয়ারি ২০১৯ – বর্তমান</x-b></div><h3><x-e>Deputy General Manager</x-e><x-b>ডেপুটি জেনারেল ম্যানেজার</x-b></h3><span class="co"><x-e>Pacific Jeans Group</x-e><x-b>প্যাসিফিক জিন্স গ্রুপ</x-b></span><small><x-e>Production · CEPZ, Chattogram</x-e><x-b>প্রোডাকশন · সিইপিজেড, চট্টগ্রাম</x-b></small></div>
-<div class="job"><div class="when"><x-e>Dec 2013 – Jan 2019</x-e><x-b>ডিসেম্বর ২০১৩ – জানুয়ারি ২০১৯</x-b></div><h3><x-e>General Manager, Production</x-e><x-b>জেনারেল ম্যানেজার, প্রোডাকশন</x-b></h3><span class="co"><x-e>HKD Outdoor Innovation Ltd</x-e><x-b>এইচকেডি আউটডোর ইনোভেশন লিমিটেড</x-b></span><small><x-e>KEPZ, Chattogram · Best Production Achievement, 2017</x-e><x-b>কেইপিজেড, চট্টগ্রাম · বেস্ট প্রোডাকশন অ্যাচিভমেন্ট, ২০১৭</x-b></small></div>
-<div class="job"><div class="when"><x-e>Jan 2009 – Dec 2013</x-e><x-b>জানুয়ারি ২০০৯ – ডিসেম্বর ২০১৩</x-b></div><h3><x-e>General Manager, Production</x-e><x-b>জেনারেল ম্যানেজার, প্রোডাকশন</x-b></h3><span class="co"><x-e>Kohinoor Apparels Ltd</x-e><x-b>কহিনূর অ্যাপারেলস লিমিটেড</x-b></span><small><x-e>Devpahar, Chattogram</x-e><x-b>দেবপাহাড়, চট্টগ্রাম</x-b></small></div>
-<div class="job"><div class="when"><x-e>Jan 2007 – Dec 2008</x-e><x-b>জানুয়ারি ২০০৭ – ডিসেম্বর ২০০৮</x-b></div><h3><x-e>Production Manager, Woven</x-e><x-b>প্রোডাকশন ম্যানেজার, উভেন</x-b></h3><span class="co"><x-e>Epic Group</x-e><x-b>এপিক গ্রুপ</x-b></span><small><x-e>Ashulia, Savar, Dhaka</x-e><x-b>আশুলিয়া, সাভার, ঢাকা</x-b></small></div>
-<div class="job"><div class="when"><x-e>Jan 1998 – Dec 2007</x-e><x-b>জানুয়ারি ১৯৯৮ – ডিসেম্বর ২০০৭</x-b></div><h3><x-e>Assistant Production Manager, Knit</x-e><x-b>অ্যাসিস্ট্যান্ট প্রোডাকশন ম্যানেজার, নিট</x-b></h3><span class="co"><x-e>KDS Group</x-e><x-b>কেডিএস গ্রুপ</x-b></span><small><x-e>Nasirabad I/A, Chattogram</x-e><x-b>নাসিরাবাদ আই/এ, চট্টগ্রাম</x-b></small></div>
+<div class="job"><div class="when"><x-e>Feb 2019 – Present</x-e><x-b>ফেব্রুয়ারি ২০১৯ – বর্তমান</x-b></div><h3><x-e>Deputy General Manager, Production</x-e><x-b>ডেপুটি জেনারেল ম্যানেজার, প্রোডাকশন</x-b></h3><span class="co"><x-e>Pacific Jeans Group</x-e><x-b>প্যাসিফিক জিন্স গ্রুপ</x-b></span><p class="ds"><x-e>48 lines of woven, denim, shirt, jacket and knit items, cut to ship.</x-e><x-b>৪৮টি লাইনে উভেন, ডেনিম, শার্ট, জ্যাকেট ও নিট আইটেম, কাটিং থেকে শিপমেন্ট পর্যন্ত।</x-b></p><small><x-e>CEPZ, Chattogram</x-e><x-b>সিইপিজেড, চট্টগ্রাম</x-b></small></div>
+<div class="job"><div class="when"><x-e>Dec 2013 – Jan 2019</x-e><x-b>ডিসেম্বর ২০১৩ – জানুয়ারি ২০১৯</x-b></div><h3><x-e>Deputy General Manager, Production</x-e><x-b>ডেপুটি জেনারেল ম্যানেজার, প্রোডাকশন</x-b></h3><span class="co"><x-e>HKD Outdoor Innovation Ltd</x-e><x-b>এইচকেডি আউটডোর ইনোভেশন লিমিটেড</x-b></span><p class="ds"><x-e>37 lines of woven, shirt, jacket, denim and knit items, cut to ship.</x-e><x-b>৩৭টি লাইনে উভেন, শার্ট, জ্যাকেট, ডেনিম ও নিট আইটেম, কাটিং থেকে শিপমেন্ট পর্যন্ত।</x-b></p><small><x-e>KEPZ, Chattogram · Best Production Achievement, 2017</x-e><x-b>কেইপিজেড, চট্টগ্রাম · বেস্ট প্রোডাকশন অ্যাচিভমেন্ট, ২০১৭</x-b></small></div>
+<div class="job"><div class="when"><x-e>Jan 2009 – Dec 2013</x-e><x-b>জানুয়ারি ২০০৯ – ডিসেম্বর ২০১৩</x-b></div><h3><x-e>General Manager, Production</x-e><x-b>জেনারেল ম্যানেজার, প্রোডাকশন</x-b></h3><span class="co"><x-e>Kohinoor Apparels Ltd</x-e><x-b>কহিনূর অ্যাপারেলস লিমিটেড</x-b></span><p class="ds"><x-e>Woven, jacket, shirt, denim and knit items, cut to ship.</x-e><x-b>উভেন, জ্যাকেট, শার্ট, ডেনিম ও নিট আইটেম, কাটিং থেকে শিপমেন্ট পর্যন্ত।</x-b></p><small><x-e>Devpahar, Chattogram</x-e><x-b>দেবপাহাড়, চট্টগ্রাম</x-b></small></div>
+<div class="job"><div class="when"><x-e>Jan 2007 – Dec 2008</x-e><x-b>জানুয়ারি ২০০৭ – ডিসেম্বর ২০০৮</x-b></div><h3><x-e>Production Manager, Denim</x-e><x-b>প্রোডাকশন ম্যানেজার, ডেনিম</x-b></h3><span class="co"><x-e>Epic Group</x-e><x-b>এপিক গ্রুপ</x-b></span><p class="ds"><x-e>18 lines, denim items only.</x-e><x-b>১৮টি লাইন, শুধু ডেনিম আইটেম।</x-b></p><small><x-e>Ashulia, Savar, Dhaka</x-e><x-b>আশুলিয়া, সাভার, ঢাকা</x-b></small></div>
+<div class="job"><div class="when"><x-e>Jan 1998 – Dec 2007</x-e><x-b>জানুয়ারি ১৯৯৮ – ডিসেম্বর ২০০৭</x-b></div><h3><x-e>Assistant Production Manager, then Production Manager, Knit</x-e><x-b>অ্যাসিস্ট্যান্ট প্রোডাকশন ম্যানেজার, পরে প্রোডাকশন ম্যানেজার, নিট</x-b></h3><span class="co"><x-e>KDS Group</x-e><x-b>কেডিএস গ্রুপ</x-b></span><small><x-e>Nasirabad I/A, Chattogram</x-e><x-b>নাসিরাবাদ আই/এ, চট্টগ্রাম</x-b></small></div>
 </div></div></section>
 
 <section id="edu"><div class="wrap grid">
-<h2 class="rv"><x-e>Education and languages</x-e><x-b>শিক্ষা ও ভাষা</x-b></h2>
+<h2 class="rv"><x-e>Qualifications</x-e><x-b>যোগ্যতা</x-b></h2>
 <div class="rv">
-<div class="row"><span><b>HSC</b>, <x-e>Humanities · Raigram Banikantho School and College</x-e><x-b>মানবিক · রায়গ্রাম বণিকণ্ঠ স্কুল এন্ড কলেজ</x-b></span><span>1997</span></div>
-<div class="row"><span><b>SSC</b>, <x-e>Humanities · Raigram Banikantho School and College</x-e><x-b>মানবিক · রায়গ্রাম বণিকণ্ঠ স্কুল এন্ড কলেজ</x-b></span><span>1994</span></div>
+<div class="sub"><x-e>Academic Qualification</x-e><x-b>শিক্ষাগত যোগ্যতা</x-b></div>
+<div class="row"><span><x-e><b>BA</b>, Logic · Mahatabuddin Degree College · exam not taken</x-e><x-b><b>বিএ</b>, লজিক · মহাতাবউদ্দিন ডিগ্রি কলেজ · পরীক্ষায় অংশ নেননি</x-b></span><span><x-e>2000</x-e><x-b>2000</x-b></span></div>
+<div class="row"><span><x-e><b>HSC</b>, Humanities · Raigram Banikantho School and College · Second Division, 60%</x-e><x-b><b>এইচএসসি</b>, মানবিক · রায়গ্রাম বণিকণ্ঠ স্কুল এন্ড কলেজ · দ্বিতীয় বিভাগ, ৬০%</x-b></span><span><x-e>1997</x-e><x-b>1997</x-b></span></div>
+<div class="row"><span><x-e><b>SSC</b>, Humanities · Raigram Banikantho School and College · Second Division, 62%</x-e><x-b><b>এসএসসি</b>, মানবিক · রায়গ্রাম বণিকণ্ঠ স্কুল এন্ড কলেজ · দ্বিতীয় বিভাগ, ৬২%</x-b></span><span><x-e>1994</x-e><x-b>1994</x-b></span></div>
+<div class="sub"><x-e>Professional Qualification</x-e><x-b>পেশাগত যোগ্যতা</x-b></div>
+<div class="row"><span><x-e><b>Best Production Achievement</b> · HKD Outdoor Innovations, KEPZ, Chattogram</x-e><x-b><b>বেস্ট প্রোডাকশন অ্যাচিভমেন্ট</b> · এইচকেডি আউটডোর ইনোভেশনস, কেইপিজেড, চট্টগ্রাম</x-b></span><span><x-e>Mar – Oct 2017</x-e><x-b>মার্চ – অক্টোবর ২০১৭</x-b></span></div>
+<div class="sub"><x-e>Languages</x-e><x-b>ভাষা</x-b></div>
 <div class="row"><span><x-e>Bangla</x-e><x-b>বাংলা</x-b></span><span><x-e>High</x-e><x-b>উচ্চ</x-b></span></div>
 <div class="row"><span><x-e>English</x-e><x-b>ইংরেজি</x-b></span><span><x-e>Medium</x-e><x-b>মধ্যম</x-b></span></div>
 </div></div></section>
@@ -189,7 +242,7 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <h2 class="rv"><x-e>Contact</x-e><x-b>যোগাযোগ</x-b></h2>
 <div class="rv">
 <p class="big"><a href="mailto:ataullah.biswas1@gmail.com">ataullah.biswas1@gmail.com</a></p>
-<p class="big"><a href="#contact" id="pn" aria-live="polite">017## ######</a></p>
+<p class="big"><a href="#contact" id="pn" aria-live="polite">+88 017## ######</a></p>
 <p style="color:var(--mute);font-size:14px;margin-top:-6px"><x-e>Tap the number to reveal it for 5 seconds.</x-e><x-b>নম্বরটিতে ট্যাপ করলে ৫ সেকেন্ডের জন্য দেখা যাবে।</x-b></p>
 <p style="color:var(--mute)"><x-e>Open to full-time, top-level roles in garments and accessories. Based in Chattogram; available across Bangladesh, Egypt, Ethiopia, Jordan and Romania.</x-e><x-b>গার্মেন্টস ও অ্যাক্সেসরিজ খাতে ফুল-টাইম টপ-লেভেল পদের জন্য আগ্রহী। চট্টগ্রামে অবস্থান; বাংলাদেশ, মিশর, ইথিওপিয়া, জর্ডান ও রোমানিয়ায় কাজ করতে প্রস্তুত।</x-b></p>
 </div></div></section>
@@ -211,11 +264,13 @@ document.getElementById('y').textContent=new Date().getFullYear();
 var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 if('IntersectionObserver' in window&&!rm){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.rv').forEach(function(e){io.observe(e)})}else{document.querySelectorAll('.rv').forEach(function(e){e.classList.add('on')})}
 if(!rm){document.querySelectorAll('[data-n]').forEach(function(e){var n=+e.dataset.n,s=null;function f(ts){s=s||ts;var p=Math.min((ts-s)/1400,1);e.textContent=nf(Math.round(n*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)}setTimeout(function(){requestAnimationFrame(f)},500)})}
-var N=atob('Kzg4MDE3MTY0MDQ5OTg='),pn=document.getElementById('pn'),tm,L='0'+N.slice(3),F=L.slice(0,5)+' '+L.slice(5),M=F.replace(/\d/g,function(c,i){return i<3?c:'#'});
+var N=atob('Kzg4MDE3MTY0MDQ5OTg='),pn=document.getElementById('pn'),tm,L=N.slice(3),G=L.slice(0,5)+' '+L.slice(5),F='+88 '+G,M='+88 '+G.replace(/\d/g,function(c,i){return i<3?c:'#'});
 function hide(){pn.textContent=M;pn.classList.remove('rev')}
 function show(){pn.textContent=F;pn.classList.add('rev');clearTimeout(tm);tm=setTimeout(hide,5000)}
 pn.onclick=function(e){e.preventDefault();if(pn.classList.contains('rev'))location.href='tel:'+N;else show()};
 document.querySelectorAll('[data-call]').forEach(function(a){a.onclick=function(e){e.preventDefault();if(matchMedia('(pointer:coarse)').matches)location.href='tel:'+N;else{document.getElementById('contact').scrollIntoView({behavior:rm?'auto':'smooth'});setTimeout(show,rm?0:500)}}});
+var bl=document.getElementById('bl');bl.insertAdjacentHTML('beforeend',bl.innerHTML);
+bl.querySelectorAll('li').forEach(function(li,k){if(k>=bl.children.length/2)li.setAttribute('aria-hidden','true');var s=li.dataset.l,im=new Image(),e=['svg','png'],i=0;im.alt=li.textContent;im.onload=function(){li.textContent='';li.appendChild(im)};im.onerror=nx;function nx(){if(i<2)im.src='logos/'+s+'.'+e[i++]}nx()});
 var tl=document.getElementById('tl'),bar=document.getElementById('bar');
 var dr=document.getElementById('dr'),ov=document.getElementById('ov'),mb=document.getElementById('mb');
 function tgl(o){dr.classList.toggle('open',o);ov.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
