@@ -86,6 +86,18 @@ h2.on::after{width:64px}
 .fig b{display:block;font-size:clamp(28px,4.4vw,42px);letter-spacing:-.03em;line-height:1.1;font-weight:800;color:var(--acc)}
 .fig span{font-size:14px;color:var(--mute);line-height:1.5;display:block;margin-top:6px}
 @media(max-width:620px){.fig{grid-template-columns:1fr;gap:20px}}
+nav a.dlc{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--surf);color:var(--ink);padding:7px 14px;border-radius:99px;font-weight:600;transition:border-color .2s,transform .2s}
+nav a.dlc,.dr a.dlc{display:inline-flex;align-items:center;gap:8px;animation:ping 2.4s ease-out infinite}
+nav a.dlc{border-color:var(--st)}
+nav a.dlc svg,.dr a.dlc svg{width:17px;height:17px;color:var(--st);animation:dn 1.3s ease-in-out infinite}
+nav a.dlc b{letter-spacing:.02em}
+.dr a.dlc{align-self:flex-start;margin-top:18px;border:1px solid var(--st);border-radius:99px;padding:10px 22px;font-size:18px}
+.dr a.dlc:hover{padding-left:22px}
+@keyframes dn{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--st) 55%,transparent)}70%,100%{box-shadow:0 0 0 12px transparent}}
+nav a.dlc:hover{border-color:var(--acc);transform:translateY(-1px)}
+.call.dl2{bottom:calc(86px + env(safe-area-inset-bottom,0px));background:var(--surf);color:var(--acc);border:1px solid var(--line);box-shadow:0 10px 24px -12px var(--acc);animation-delay:-1.4s}
+.call.dl2::before{display:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}}
 @keyframes sew{to{width:100%}}
@@ -129,6 +141,7 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <a class="l" href="#skills"><x-e>Expertise</x-e><x-b>দক্ষতা</x-b></a>
 <a class="l" href="#career"><x-e>Career</x-e><x-b>ক্যারিয়ার</x-b></a>
 <a class="l" href="#contact"><x-e>Contact</x-e><x-b>যোগাযোগ</x-b></a>
+<a class="l dlc" href="Md-Ataullah-Biswas-CV.pdf" download aria-label="Download CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 20h16"/></svg><b>CV</b></a>
 <button class="tg" id="lg" aria-label="Switch language"><x-e>বাংলা</x-e><x-b>English</x-b></button>
 <button class="tg" id="th" aria-label="Toggle theme">◐</button>
 <button class="tg mb" id="mb" aria-label="Menu" aria-expanded="false">☰</button>
@@ -141,6 +154,7 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <a href="#career"><x-e>Career</x-e><x-b>ক্যারিয়ার</x-b></a>
 <a href="#edu"><x-e>Education</x-e><x-b>শিক্ষা</x-b></a>
 <a href="#contact"><x-e>Contact</x-e><x-b>যোগাযোগ</x-b></a>
+<a class="dlc" href="Md-Ataullah-Biswas-CV.pdf" download aria-label="Download CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 20h16"/></svg><b>CV</b></a>
 </aside>
 
 <main id="top">
@@ -244,11 +258,12 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <p class="big"><a href="mailto:ataullah.biswas1@gmail.com">ataullah.biswas1@gmail.com</a></p>
 <p class="big"><a href="#contact" id="pn" aria-live="polite">+88 017## ######</a></p>
 <p style="color:var(--mute);font-size:14px;margin-top:-6px"><x-e>Tap the number to reveal it for 5 seconds.</x-e><x-b>নম্বরটিতে ট্যাপ করলে ৫ সেকেন্ডের জন্য দেখা যাবে।</x-b></p>
-<p style="color:var(--mute)"><x-e>Open to full-time, top-level roles in garments and accessories. Based in Chattogram; available across Bangladesh, Egypt, Ethiopia, Jordan and Romania.</x-e><x-b>গার্মেন্টস ও অ্যাক্সেসরিজ খাতে ফুল-টাইম টপ-লেভেল পদের জন্য আগ্রহী। চট্টগ্রামে অবস্থান; বাংলাদেশ, মিশর, ইথিওপিয়া, জর্ডান ও রোমানিয়ায় কাজ করতে প্রস্তুত।</x-b></p>
+<p style="color:var(--mute)"><x-e>Open to full-time, top-level roles in garments and accessories. Based in Chattogram; available across Bangladesh, Ethiopia, Jordan and Romania.</x-e><x-b>গার্মেন্টস ও অ্যাক্সেসরিজ খাতে ফুল-টাইম টপ-লেভেল পদের জন্য আগ্রহী। চট্টগ্রামে অবস্থান; বাংলাদেশ, ইথিওপিয়া, জর্ডান ও রোমানিয়ায় কাজ করতে প্রস্তুত।</x-b></p>
 </div></div></section>
 </main>
 <footer><div class="wrap">© <span id="y">2026</span> <x-e>Md. Ataullah Biswas</x-e><x-b>মো. আতাউল্লাহ বিশ্বাস</x-b></div></footer>
 
+<a class="call dl2" href="Md-Ataullah-Biswas-CV.pdf" download aria-label="Download CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 20h16"/></svg><span><x-e>Download CV</x-e><x-b>সিভি ডাউনলোড</x-b></span></a>
 <a class="call" href="#contact" data-call aria-label="Call Md. Ataullah Biswas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span><x-e>Call me</x-e><x-b>কল করুন</x-b></span></a>
 <script>
 (function(){
