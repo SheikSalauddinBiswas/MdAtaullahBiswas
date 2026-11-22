@@ -126,7 +126,7 @@ ul.sk li:hover::before{width:26px}
 .job small{display:block;color:var(--mute);font-size:14px;line-height:1.6}
 .when{font-size:13px;font-weight:600;color:var(--mute);margin-bottom:4px}
 .row{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
-.row span:last-child{color:var(--mute);text-align:right}
+.row span:last-child{color:var(--mute);text-align:right;max-width:62%}
 .big{font-size:clamp(22px,4vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.3}
 .big a{border-bottom:2px dashed var(--st);transition:color .2s}
 .big a:hover,.big a.rev{color:var(--acc)}
@@ -138,8 +138,8 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <header><i class="bar" id="bar"></i><div class="wrap"><nav>
 <a class="logo" href="#top">AB<i>.</i></a>
 <a class="l" href="#about"><x-e>About</x-e><x-b>পরিচিতি</x-b></a>
-<a class="l" href="#skills"><x-e>Expertise</x-e><x-b>দক্ষতা</x-b></a>
 <a class="l" href="#career"><x-e>Career</x-e><x-b>ক্যারিয়ার</x-b></a>
+<a class="l" href="#skills"><x-e>Expertise</x-e><x-b>দক্ষতা</x-b></a>
 <a class="l" href="#contact"><x-e>Contact</x-e><x-b>যোগাযোগ</x-b></a>
 <a class="l dlc" href="Md-Ataullah-Biswas-CV.pdf" download aria-label="Download CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 20h16"/></svg><b>CV</b></a>
 <button class="tg" id="lg" aria-label="Switch language"><x-e>বাংলা</x-e><x-b>English</x-b></button>
@@ -150,8 +150,8 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <aside class="dr" id="dr" aria-label="Menu">
 <button class="tg x" id="cx" aria-label="Close menu">✕</button>
 <a href="#about"><x-e>About</x-e><x-b>পরিচিতি</x-b></a>
-<a href="#skills"><x-e>Expertise</x-e><x-b>দক্ষতা</x-b></a>
 <a href="#career"><x-e>Career</x-e><x-b>ক্যারিয়ার</x-b></a>
+<a href="#skills"><x-e>Expertise</x-e><x-b>দক্ষতা</x-b></a>
 <a href="#edu"><x-e>Education</x-e><x-b>শিক্ষা</x-b></a>
 <a href="#contact"><x-e>Contact</x-e><x-b>যোগাযোগ</x-b></a>
 <a class="dlc" href="Md-Ataullah-Biswas-CV.pdf" download aria-label="Download CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 20h16"/></svg><b>CV</b></a>
@@ -196,6 +196,16 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <li><x-e>Strong technical skill and knowledge of quality standards</x-e><x-b>শক্তিশালী টেকনিক্যাল দক্ষতা ও কোয়ালিটি স্ট্যান্ডার্ডের জ্ঞান</x-b></li>
 </ul></div></div></section>
 
+<section id="career"><div class="wrap grid">
+<h2 class="rv"><x-e>Career</x-e><x-b>ক্যারিয়ার</x-b></h2>
+<div class="tl rv" id="tl">
+<div class="job"><div class="when"><x-e>Feb 2019 – Present</x-e><x-b>ফেব্রুয়ারি ২০১৯ – বর্তমান</x-b></div><h3><x-e>Deputy General Manager, Production</x-e><x-b>ডেপুটি জেনারেল ম্যানেজার, প্রোডাকশন</x-b></h3><span class="co"><x-e>Pacific Jeans Group</x-e><x-b>প্যাসিফিক জিন্স গ্রুপ</x-b></span><p class="ds"><x-e>48 lines of woven, denim, shirt, jacket and knit items, cut to ship.</x-e><x-b>৪৮টি লাইনে উভেন, ডেনিম, শার্ট, জ্যাকেট ও নিট আইটেম, কাটিং থেকে শিপমেন্ট পর্যন্ত।</x-b></p><small><x-e>CEPZ, Chattogram</x-e><x-b>সিইপিজেড, চট্টগ্রাম</x-b></small></div>
+<div class="job"><div class="when"><x-e>Dec 2013 – Jan 2019</x-e><x-b>ডিসেম্বর ২০১৩ – জানুয়ারি ২০১৯</x-b></div><h3><x-e>Deputy General Manager, Production</x-e><x-b>ডেপুটি জেনারেল ম্যানেজার, প্রোডাকশন</x-b></h3><span class="co"><x-e>HKD Outdoor Innovation Ltd</x-e><x-b>এইচকেডি আউটডোর ইনোভেশন লিমিটেড</x-b></span><p class="ds"><x-e>37 lines of woven, shirt, jacket, denim and knit items, cut to ship.</x-e><x-b>৩৭টি লাইনে উভেন, শার্ট, জ্যাকেট, ডেনিম ও নিট আইটেম, কাটিং থেকে শিপমেন্ট পর্যন্ত।</x-b></p><small><x-e>KEPZ, Chattogram · Best Production Achievement, 2017</x-e><x-b>কেইপিজেড, চট্টগ্রাম · বেস্ট প্রোডাকশন অ্যাচিভমেন্ট, ২০১৭</x-b></small></div>
+<div class="job"><div class="when"><x-e>Jan 2009 – Dec 2013</x-e><x-b>জানুয়ারি ২০০৯ – ডিসেম্বর ২০১৩</x-b></div><h3><x-e>General Manager, Production</x-e><x-b>জেনারেল ম্যানেজার, প্রোডাকশন</x-b></h3><span class="co"><x-e>Kohinoor Apparels Ltd</x-e><x-b>কহিনূর অ্যাপারেলস লিমিটেড</x-b></span><p class="ds"><x-e>Woven, jacket, shirt, denim and knit items, cut to ship.</x-e><x-b>উভেন, জ্যাকেট, শার্ট, ডেনিম ও নিট আইটেম, কাটিং থেকে শিপমেন্ট পর্যন্ত।</x-b></p><small><x-e>Devpahar, Chattogram</x-e><x-b>দেবপাহাড়, চট্টগ্রাম</x-b></small></div>
+<div class="job"><div class="when"><x-e>Jan 2007 – Dec 2008</x-e><x-b>জানুয়ারি ২০০৭ – ডিসেম্বর ২০০৮</x-b></div><h3><x-e>Production Manager, Denim</x-e><x-b>প্রোডাকশন ম্যানেজার, ডেনিম</x-b></h3><span class="co"><x-e>Epic Group</x-e><x-b>এপিক গ্রুপ</x-b></span><p class="ds"><x-e>18 lines, denim items only.</x-e><x-b>১৮টি লাইন, শুধু ডেনিম আইটেম।</x-b></p><small><x-e>Ashulia, Savar, Dhaka</x-e><x-b>আশুলিয়া, সাভার, ঢাকা</x-b></small></div>
+<div class="job"><div class="when"><x-e>Jan 1998 – Dec 2007</x-e><x-b>জানুয়ারি ১৯৯৮ – ডিসেম্বর ২০০৭</x-b></div><h3><x-e>Assistant Production Manager, then Production Manager, Knit</x-e><x-b>অ্যাসিস্ট্যান্ট প্রোডাকশন ম্যানেজার, পরে প্রোডাকশন ম্যানেজার, নিট</x-b></h3><span class="co"><x-e>KDS Group</x-e><x-b>কেডিএস গ্রুপ</x-b></span><small><x-e>Nasirabad I/A, Chattogram</x-e><x-b>নাসিরাবাদ আই/এ, চট্টগ্রাম</x-b></small></div>
+</div></div></section>
+
 <section id="skills"><div class="wrap grid">
 <h2 class="rv"><x-e>Expertise</x-e><x-b>দক্ষতা</x-b></h2>
 <ul class="sk rv">
@@ -228,16 +238,6 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <li data-l="gu">GU</li>
 </ul></div></section>
 
-<section id="career"><div class="wrap grid">
-<h2 class="rv"><x-e>Career</x-e><x-b>ক্যারিয়ার</x-b></h2>
-<div class="tl rv" id="tl">
-<div class="job"><div class="when"><x-e>Feb 2019 – Present</x-e><x-b>ফেব্রুয়ারি ২০১৯ – বর্তমান</x-b></div><h3><x-e>Deputy General Manager, Production</x-e><x-b>ডেপুটি জেনারেল ম্যানেজার, প্রোডাকশন</x-b></h3><span class="co"><x-e>Pacific Jeans Group</x-e><x-b>প্যাসিফিক জিন্স গ্রুপ</x-b></span><p class="ds"><x-e>48 lines of woven, denim, shirt, jacket and knit items, cut to ship.</x-e><x-b>৪৮টি লাইনে উভেন, ডেনিম, শার্ট, জ্যাকেট ও নিট আইটেম, কাটিং থেকে শিপমেন্ট পর্যন্ত।</x-b></p><small><x-e>CEPZ, Chattogram</x-e><x-b>সিইপিজেড, চট্টগ্রাম</x-b></small></div>
-<div class="job"><div class="when"><x-e>Dec 2013 – Jan 2019</x-e><x-b>ডিসেম্বর ২০১৩ – জানুয়ারি ২০১৯</x-b></div><h3><x-e>Deputy General Manager, Production</x-e><x-b>ডেপুটি জেনারেল ম্যানেজার, প্রোডাকশন</x-b></h3><span class="co"><x-e>HKD Outdoor Innovation Ltd</x-e><x-b>এইচকেডি আউটডোর ইনোভেশন লিমিটেড</x-b></span><p class="ds"><x-e>37 lines of woven, shirt, jacket, denim and knit items, cut to ship.</x-e><x-b>৩৭টি লাইনে উভেন, শার্ট, জ্যাকেট, ডেনিম ও নিট আইটেম, কাটিং থেকে শিপমেন্ট পর্যন্ত।</x-b></p><small><x-e>KEPZ, Chattogram · Best Production Achievement, 2017</x-e><x-b>কেইপিজেড, চট্টগ্রাম · বেস্ট প্রোডাকশন অ্যাচিভমেন্ট, ২০১৭</x-b></small></div>
-<div class="job"><div class="when"><x-e>Jan 2009 – Dec 2013</x-e><x-b>জানুয়ারি ২০০৯ – ডিসেম্বর ২০১৩</x-b></div><h3><x-e>General Manager, Production</x-e><x-b>জেনারেল ম্যানেজার, প্রোডাকশন</x-b></h3><span class="co"><x-e>Kohinoor Apparels Ltd</x-e><x-b>কহিনূর অ্যাপারেলস লিমিটেড</x-b></span><p class="ds"><x-e>Woven, jacket, shirt, denim and knit items, cut to ship.</x-e><x-b>উভেন, জ্যাকেট, শার্ট, ডেনিম ও নিট আইটেম, কাটিং থেকে শিপমেন্ট পর্যন্ত।</x-b></p><small><x-e>Devpahar, Chattogram</x-e><x-b>দেবপাহাড়, চট্টগ্রাম</x-b></small></div>
-<div class="job"><div class="when"><x-e>Jan 2007 – Dec 2008</x-e><x-b>জানুয়ারি ২০০৭ – ডিসেম্বর ২০০৮</x-b></div><h3><x-e>Production Manager, Denim</x-e><x-b>প্রোডাকশন ম্যানেজার, ডেনিম</x-b></h3><span class="co"><x-e>Epic Group</x-e><x-b>এপিক গ্রুপ</x-b></span><p class="ds"><x-e>18 lines, denim items only.</x-e><x-b>১৮টি লাইন, শুধু ডেনিম আইটেম।</x-b></p><small><x-e>Ashulia, Savar, Dhaka</x-e><x-b>আশুলিয়া, সাভার, ঢাকা</x-b></small></div>
-<div class="job"><div class="when"><x-e>Jan 1998 – Dec 2007</x-e><x-b>জানুয়ারি ১৯৯৮ – ডিসেম্বর ২০০৭</x-b></div><h3><x-e>Assistant Production Manager, then Production Manager, Knit</x-e><x-b>অ্যাসিস্ট্যান্ট প্রোডাকশন ম্যানেজার, পরে প্রোডাকশন ম্যানেজার, নিট</x-b></h3><span class="co"><x-e>KDS Group</x-e><x-b>কেডিএস গ্রুপ</x-b></span><small><x-e>Nasirabad I/A, Chattogram</x-e><x-b>নাসিরাবাদ আই/এ, চট্টগ্রাম</x-b></small></div>
-</div></div></section>
-
 <section id="edu"><div class="wrap grid">
 <h2 class="rv"><x-e>Qualifications</x-e><x-b>যোগ্যতা</x-b></h2>
 <div class="rv">
@@ -250,6 +250,20 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <div class="sub"><x-e>Languages</x-e><x-b>ভাষা</x-b></div>
 <div class="row"><span><x-e>Bangla</x-e><x-b>বাংলা</x-b></span><span><x-e>High</x-e><x-b>উচ্চ</x-b></span></div>
 <div class="row"><span><x-e>English</x-e><x-b>ইংরেজি</x-b></span><span><x-e>Medium</x-e><x-b>মধ্যম</x-b></span></div>
+</div></div></section>
+
+<section id="personal"><div class="wrap grid">
+<h2 class="rv"><x-e>Personal details</x-e><x-b>ব্যক্তিগত তথ্য</x-b></h2>
+<div class="rv">
+<div class="row"><span><x-e>Father’s name</x-e><x-b>পিতার নাম</x-b></span><span><x-e>Late Md Abutaleb Biswas</x-e><x-b>মরহুম মো. আবুতালেব বিশ্বাস</x-b></span></div>
+<div class="row"><span><x-e>Mother’s name</x-e><x-b>মাতার নাম</x-b></span><span><x-e>Ironnessa</x-e><x-b>ইরনেছা</x-b></span></div>
+<div class="row"><span><x-e>Date of birth</x-e><x-b>জন্ম তারিখ</x-b></span><span><x-e>August 20, 1977</x-e><x-b>২০ আগস্ট ১৯৭৭</x-b></span></div>
+<div class="row"><span><x-e>Gender</x-e><x-b>লিঙ্গ</x-b></span><span><x-e>Male</x-e><x-b>পুরুষ</x-b></span></div>
+<div class="row"><span><x-e>Marital status</x-e><x-b>বৈবাহিক অবস্থা</x-b></span><span><x-e>Married</x-e><x-b>বিবাহিত</x-b></span></div>
+<div class="row"><span><x-e>Nationality</x-e><x-b>জাতীয়তা</x-b></span><span><x-e>Bangladeshi</x-e><x-b>বাংলাদেশি</x-b></span></div>
+<div class="row"><span><x-e>Religion</x-e><x-b>ধর্ম</x-b></span><span><x-e>Islam</x-e><x-b>ইসলাম</x-b></span></div>
+<div class="row"><span><x-e>Permanent address</x-e><x-b>স্থায়ী ঠিকানা</x-b></span><span><x-e>Biswas Bari, Barui para, Naldanga, Kaliganj, Jhenaidah 7350</x-e><x-b>বিশ্বাস বাড়ি, বারুইপাড়া, নলডাঙ্গা, কালীগঞ্জ, ঝিনাইদহ ৭৩৫০</x-b></span></div>
+<div class="row"><span><x-e>Current location</x-e><x-b>বর্তমান অবস্থান</x-b></span><span><x-e>Chattogram</x-e><x-b>চট্টগ্রাম</x-b></span></div>
 </div></div></section>
 
 <section id="contact"><div class="wrap grid">
