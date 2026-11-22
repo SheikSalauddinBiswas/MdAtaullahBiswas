@@ -98,6 +98,13 @@ nav a.dlc b{letter-spacing:.02em}
 nav a.dlc:hover{border-color:var(--acc);transform:translateY(-1px)}
 .call.dl2{bottom:calc(86px + env(safe-area-inset-bottom,0px));background:var(--surf);color:var(--acc);border:1px solid var(--line);box-shadow:0 10px 24px -12px var(--acc);animation-delay:-1.4s}
 .call.dl2::before{display:none}
+.eye{margin-left:14px;vertical-align:middle;padding:0;display:inline-flex;align-items:center;justify-content:center;width:40px;color:var(--acc);border-color:var(--st)}
+.eye svg{width:19px;height:19px}
+.eye[aria-expanded=true] .e1,.eye[aria-expanded=false] .e2{display:none}
+.pdh{margin:0;color:var(--mute);padding:14px 0;border-bottom:1px dashed var(--line)}
+.pdw{display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .55s cubic-bezier(.2,.7,.2,1),opacity .4s,visibility 0s .55s}
+.pdw.open{grid-template-rows:1fr;opacity:1;visibility:visible;transition:grid-template-rows .55s cubic-bezier(.2,.7,.2,1),opacity .5s .1s,visibility 0s}
+.pdi{overflow:hidden;min-height:0}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}}
 @keyframes sew{to{width:100%}}
@@ -253,8 +260,10 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 </div></div></section>
 
 <section id="personal"><div class="wrap grid">
-<h2 class="rv"><x-e>Personal details</x-e><x-b>ব্যক্তিগত তথ্য</x-b></h2>
+<h2 class="rv"><x-e>Personal details</x-e><x-b>ব্যক্তিগত তথ্য</x-b><button class="tg eye" id="eyeB" aria-expanded="false" aria-controls="pdc" aria-label="Show personal details"><svg class="e1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="e2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg></button></h2>
 <div class="rv">
+<p class="pdh" id="pdh"><x-e>Personal details are hidden. Tap the eye icon to view them.</x-e><x-b>ব্যক্তিগত তথ্য লুকানো আছে। দেখতে চোখের আইকনে ট্যাপ করুন।</x-b></p>
+<div class="pdw" id="pdc"><div class="pdi">
 <div class="row"><span><x-e>Father’s name</x-e><x-b>পিতার নাম</x-b></span><span><x-e>Late Md Abutaleb Biswas</x-e><x-b>মরহুম মো. আবুতালেব বিশ্বাস</x-b></span></div>
 <div class="row"><span><x-e>Mother’s name</x-e><x-b>মাতার নাম</x-b></span><span><x-e>Ironnessa</x-e><x-b>ইরনেছা</x-b></span></div>
 <div class="row"><span><x-e>Date of birth</x-e><x-b>জন্ম তারিখ</x-b></span><span><x-e>August 20, 1977</x-e><x-b>২০ আগস্ট ১৯৭৭</x-b></span></div>
@@ -264,7 +273,8 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mute);fo
 <div class="row"><span><x-e>Religion</x-e><x-b>ধর্ম</x-b></span><span><x-e>Islam</x-e><x-b>ইসলাম</x-b></span></div>
 <div class="row"><span><x-e>Permanent address</x-e><x-b>স্থায়ী ঠিকানা</x-b></span><span><x-e>Biswas Bari, Barui para, Naldanga, Kaliganj, Jhenaidah 7350</x-e><x-b>বিশ্বাস বাড়ি, বারুইপাড়া, নলডাঙ্গা, কালীগঞ্জ, ঝিনাইদহ ৭৩৫০</x-b></span></div>
 <div class="row"><span><x-e>Current location</x-e><x-b>বর্তমান অবস্থান</x-b></span><span><x-e>Chattogram</x-e><x-b>চট্টগ্রাম</x-b></span></div>
-</div></div></section>
+</div></div></div></div>
+</section>
 
 <section id="contact"><div class="wrap grid">
 <h2 class="rv"><x-e>Contact</x-e><x-b>যোগাযোগ</x-b></h2>
@@ -300,6 +310,8 @@ pn.onclick=function(e){e.preventDefault();if(pn.classList.contains('rev'))locati
 document.querySelectorAll('[data-call]').forEach(function(a){a.onclick=function(e){e.preventDefault();if(matchMedia('(pointer:coarse)').matches)location.href='tel:'+N;else{document.getElementById('contact').scrollIntoView({behavior:rm?'auto':'smooth'});setTimeout(show,rm?0:500)}}});
 var bl=document.getElementById('bl');bl.insertAdjacentHTML('beforeend',bl.innerHTML);
 bl.querySelectorAll('li').forEach(function(li,k){if(k>=bl.children.length/2)li.setAttribute('aria-hidden','true');var s=li.dataset.l,im=new Image(),e=['svg','png'],i=0;im.alt=li.textContent;im.onload=function(){li.textContent='';li.appendChild(im)};im.onerror=nx;function nx(){if(i<2)im.src='logos/'+s+'.'+e[i++]}nx()});
+var eyeB=document.getElementById('eyeB'),pdc=document.getElementById('pdc'),pdh=document.getElementById('pdh');
+eyeB.onclick=function(){var o=eyeB.getAttribute('aria-expanded')!=='true';eyeB.setAttribute('aria-expanded',o);pdc.classList.toggle('open',o);pdh.hidden=o;eyeB.setAttribute('aria-label',o?'Hide personal details':'Show personal details')};
 var tl=document.getElementById('tl'),bar=document.getElementById('bar');
 var dr=document.getElementById('dr'),ov=document.getElementById('ov'),mb=document.getElementById('mb');
 function tgl(o){dr.classList.toggle('open',o);ov.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
